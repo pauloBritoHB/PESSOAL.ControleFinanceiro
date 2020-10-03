@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:55054",
-      "sslPort": 44307
+      "applicationUrl": "http://localhost:51696",
+      "sslPort": 44303
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "PESSOAL.ControleFinanceiro": {
+    "PROJETO_HBSIS.BOLETIM.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "Login",

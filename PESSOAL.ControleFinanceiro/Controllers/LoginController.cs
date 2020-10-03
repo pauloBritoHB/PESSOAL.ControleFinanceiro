@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
 using PESSOAL.ControleFinanceiro.MODELS;
+using PESSOAL.ControleFinanceiro.Utilities;
 
 namespace PESSOAL.ControleFinanceiro.Controllers
 {
@@ -13,7 +9,7 @@ namespace PESSOAL.ControleFinanceiro.Controllers
     public class LoginController : ControllerBase
     {
 
-        private Usuario usuario = new Usuario()
+        public Usuario usuario = new Usuario()
         {
             Id = 1,
             Nome = "Paulo",
@@ -28,10 +24,23 @@ namespace PESSOAL.ControleFinanceiro.Controllers
         }
 
         [HttpGet]
-        
         public ActionResult Get()
+        {  
+
+            return Ok("logado");
+        }
+
+        [HttpGet]
+        [Route("Logar")]
+        public ActionResult Logar()
         {
-            return Ok(usuario);
+            var result = new ResultDefault<Usuario>();
+
+            result.Data.Add(usuario);
+            result.IsError = false;
+            result.Messages.Add("Ok");
+           
+            return Ok(result);
         }
 
            
