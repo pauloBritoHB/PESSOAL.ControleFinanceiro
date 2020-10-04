@@ -17,30 +17,23 @@ namespace PESSOAL.ControleFinanceiro.Controllers
             Senha= "aaaa"
         };
 
-
         public LoginController()
         {
             
         }
 
-        [HttpGet]
-        public ActionResult Get()
-        {  
-
-            return Ok("logado");
-        }
-
-        [HttpGet]
+        [HttpPost]
         [Route("Logar")]
-        public ActionResult Logar()
+        public ActionResult Logar(Usuario user)
         {
-            var result = new ResultDefault<Usuario>();
-
-            result.Data.Add(usuario);
-            result.IsError = false;
-            result.Messages.Add("Ok");
+            
+            if (user.Login == usuario.Login && user.Senha == usuario.Senha)
+            {
+                return Ok(usuario);
+            }
+            
            
-            return Ok(result);
+            return BadRequest("deu merda");
         }
 
            

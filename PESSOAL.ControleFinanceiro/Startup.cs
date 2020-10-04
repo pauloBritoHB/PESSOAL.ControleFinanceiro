@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,9 @@ namespace PESSOAL.ControleFinanceiro
 {
     public class Startup
     {
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +29,27 @@ namespace PESSOAL.ControleFinanceiro
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Angular
+            //------------------------------------------------------------------------
+            //------------------------------------------------------------------------
+            //------------------------------------------------------------------------
+            //para funcionar Angular
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:8100/tabs/tab1",
+                                                          "http://www.contoso.com")
+                                                                    .AllowAnyOrigin()
+                                                                    .AllowAnyHeader()
+                                                                    .AllowAnyMethod();
+                                  });
+            });
+            //------------------------------------------------------------------------
+            //------------------------------------------------------------------------
+            //------------------------------------------------------------------------
+
             services.AddControllers();
         }
 
@@ -39,6 +64,10 @@ namespace PESSOAL.ControleFinanceiro
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+
+            //para funcionar Angular
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
