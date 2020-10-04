@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PESSOAL.ControleFinanceiro.MODELS
 {
@@ -8,5 +9,7 @@ namespace PESSOAL.ControleFinanceiro.MODELS
         public string Nome { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
+        public int IdCarteira { get; set; }
+        public ICollection<Carteira> Carteiras { get; set; }
     }
 }

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PESSOAL.ControleFinanceiro.MODELS.Usuario">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAAAAAAAAAAgAAAAAACAAAAAAAAAQAAEAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Carteiras" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="PESSOAL.ControleFinanceiro.MODELS.Carteira">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAQIAAAAAABAIEAAAAAAA=</HashCode>
+      <FileName>Carteira.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Usuario" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Operações" />
+      <Property Name="ContasAPagar" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="PESSOAL.ControleFinanceiro.MODELS.Operacao">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAAAAAAAAAAEAAAAABAAAAAAAAAAEAQ=</HashCode>
+      <FileName>Operacao.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoOperação" />
+      <Property Name="Cateroria" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PESSOAL.ControleFinanceiro.MODELS.A_Pagar">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAgAAAAAAAEAAAAAAAAAAAAQAAAAAQ=</HashCode>
+      <FileName>A_Pagar.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Categoria" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="PESSOAL.ControleFinanceiro.MODELS.Enums.TipoOperacaoEnum">
+    <Position X="12.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Enums\TipoOperacaoEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PESSOAL.ControleFinanceiro.MODELS.Enums.StatusA_pagar">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAIAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\StatusA_pagar.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PESSOAL.ControleFinanceiro.MODELS.Enums.CatergoriaEnum">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgACAgAAAAACAAQCAAAAAAACAAAAAAAAIAIAAACAA=</HashCode>
+      <FileName>Enums\CatergoriaEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
