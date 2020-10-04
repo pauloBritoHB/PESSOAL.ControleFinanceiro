@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using PESSOAL.ControleFinanceiro.SERVICES;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace PESSOAL.ControleFinanceiro
 {
@@ -51,6 +54,20 @@ namespace PESSOAL.ControleFinanceiro
             //------------------------------------------------------------------------
 
             services.AddControllers();
+            
+
+            //SWAGGER----------------------------------
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Projeto Pessoal Controle Financeiro",
+                    Version = "v1",
+                });
+            });
+            //------------------------------------------
+
+            services.Injetar(Configuration.GetConnectionString("DefaultConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +92,15 @@ namespace PESSOAL.ControleFinanceiro
             {
                 endpoints.MapControllers();
             });
+
+            //SWAGGER----------------------------------
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1 HBSIS CRUD Pessoa Fisica - PADAWAN");
+                c.DocExpansion(DocExpansion.None);
+            });
+            //------------------------------------------
         }
     }
 }

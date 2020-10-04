@@ -16,7 +16,10 @@
   <ItemGroup>
     <ProjectReference Include="..\PESSOAL.ControleFinanceiro.CONTEXT\PESSOAL.ControleFinanceiro.CONTEXT.csproj" />
     <ProjectReference Include="..\PESSOAL.ControleFinanceiro.MODELS\PESSOAL.ControleFinanceiro.MODELS.csproj" />
+    <ProjectReference Include="..\PESSOAL.ControleFinanceiro.SERVICES\PESSOAL.ControleFinanceiro.SERVICES.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 
 </Project>
