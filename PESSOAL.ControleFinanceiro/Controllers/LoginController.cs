@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PESSOAL.ControleFinanceiro.MODELS;
-using PESSOAL.ControleFinanceiro.Utilities;
+using PESSOAL.ControleFinanceiro.SERVICES.Interfaces;
+using PESSOAL.ControleFinanceiro.SERVICES.Results;
 
 namespace PESSOAL.ControleFinanceiro.Controllers
 {
@@ -9,33 +10,21 @@ namespace PESSOAL.ControleFinanceiro.Controllers
     public class LoginController : ControllerBase
     {
 
-        public Usuario usuario = new Usuario()
-        {
-            Id = 1,
-            Nome = "Paulo",
-            Login = "aaaa",
-            Senha= "aaaa"
-        };
+        private IFinanceiroServices service;
 
-        public LoginController()
+        public LoginController(IFinanceiroServices srvc)
         {
-            
+            service = srvc;
         }
 
         [HttpPost]
         [Route("Logar")]
-        public ActionResult Logar(Usuario user)
+        public PadraoResult<Usuario> Logar(Usuario user)
         {
-            
-            if (user.Login == usuario.Login && user.Senha == usuario.Senha)
-            {
-                return Ok(usuario);
-            }
-            
-           
-            return BadRequest("deu merda");
+            var result = service.Logar(user);
+            return result;
         }
 
-           
+
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using PESSOAL.ControleFinanceiro.MODELS;
+using PESSOAL.ControleFinanceiro.SERVICES.Results;
+
 
 namespace PESSOAL.ControleFinanceiro.SERVICES.Interfaces
 {
-     public class IFinanceiroServices
+     public interface IFinanceiroServices
     {
+         PadraoResult<Usuario> Logar(Usuario user);
     }
 }
